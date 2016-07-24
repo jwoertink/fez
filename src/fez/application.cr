@@ -10,7 +10,11 @@ module Fez
 
     def build_directory(directory_name : String)
       @directory = File.join(directory_name, @name)
-      puts Dir.exists?(@directory)
+      if Dir.exists?(@directory)
+        raise "Directory #{@directory} already exists. Remove before continuing"
+      else
+        Dir.mkdir_p(@directory)
+      end
     end
   end
 end
