@@ -25,14 +25,14 @@ $ make
 You should now have a `bin/fez` file to run.
 
 ## Usage
+You can use `fez -h` for help or `fez -v` to check the version you're running.
 
 Take your `bin/fez` file, and move that to a better location. Preferably somewhere globally accessible like `/usr/local/bin`? 
 
 ```text
 $ fez -b your_app_name_goes_here
+$ fez -b super_cool_app -d ~/Sites/
 ```
-
-You can use `fez -h` for help or `fez -v` to check the version you're running.
 
 ## Development
 
