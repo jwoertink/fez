@@ -51,4 +51,4 @@ TODO: (in no particular order)
 
 ## Contributors
 
-- [[jwoertink](https://github.com/jwoertink) Jeremy Woertink - creator, maintainer
+- [[jwoertink](https://github.com/jwoertink)] Jeremy Woertink - creator, maintainer
