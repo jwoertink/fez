@@ -29,8 +29,10 @@ You should now have a `bin/fez` file to run.
 Take your `bin/fez` file, and move that to a better location. Preferably somewhere globally accessible like `/usr/local/bin`? 
 
 ```text
-$ fez build your_app_name_goes_here
+$ fez -b your_app_name_goes_here
 ```
+
+You can use `fez -h` for help or `fez -v` to check the version you're running.
 
 ## Development
 
