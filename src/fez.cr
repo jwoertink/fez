@@ -2,9 +2,11 @@ require "./fez/*"
 require "option_parser"
 require "ecr/macros"
 
+# Default Values
 application_name = "my_temp_app"
 application_directory = "/tmp"
 
+# Parse the CLI options
 OptionParser.parse! do |parser|
   parser.banner = "Usage: fez [arguments]"
   parser.on("-b NAME", "--build=NAME", "Set the NAME of the app") { |name| application_name = name }
@@ -13,6 +15,7 @@ OptionParser.parse! do |parser|
   parser.on("-h", "--help", "Show this help") { puts parser; exit }
 end
 
+# Start the application
 puts "Building #{application_name}"
 
 new_app = Fez::Application.new(application_name)
