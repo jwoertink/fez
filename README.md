@@ -40,6 +40,28 @@ TODO: (in no particular order)
 
 1. all the things
 
+### Generated structure
+
+```text
+public/
+  | stylesheets/
+  | javascripts/
+  | images/
+  | favicon.ico
+  | robots.txt
+src/
+  | views/
+  | | layouts/
+  | | | layout.slang
+  | app_name.cr
+.env
+.gitignore
+.travis.yml
+app.cr
+README.md
+shard.yml
+```
+
 
 ## Contributing
 
