@@ -19,11 +19,10 @@ module Fez
 
     def add_project_file(filename : String)
       ecr_file = "#{__DIR__}/../templates/#{filename}.ecr"
-      puts "ECR: #{ecr_file}"
-      puts "OUT: #{File.join(@directory, filename)}"
-      #File.write(File.join(@directory, filename), String.build { |str|
-      #  ECR.embed("ecr_file", "str")
-      #})
+      out_file = File.join(@directory, filename)
+      io = MemoryIO.new
+      ECR.embed("ecr_file", io)
+      File.write(out_file, io.to_s)
     end
   end
 end
