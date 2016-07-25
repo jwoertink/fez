@@ -7,7 +7,9 @@ module Fez
       "app.cr"      => ".",
       "README.md"   => ".",
       "shard.yml"   => ".",
-      "robots.txt"  => "public"
+      "robots.txt"  => "public",
+      "favicon.ico" => "public",
+      "layout.slang"=> "src/views/layouts"
     }
 
     FOLDERS = %w(
