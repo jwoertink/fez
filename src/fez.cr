@@ -3,7 +3,7 @@ require "option_parser"
 require "ecr/macros"
 
 application_name = "my_temp_app"
-application_directory = "temp"
+application_directory = "/tmp"
 
 OptionParser.parse! do |parser|
   parser.banner = "Usage: fez [arguments]"
