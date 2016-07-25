@@ -20,7 +20,4 @@ puts "Building #{application_name}"
 
 new_app = Fez::Application.new(application_name)
 new_app.build_directory(application_directory)
-
-Fez::Template::FILES.each do |file|
-  new_app.add_project_file(file)
-end
+new_app.add_project_files

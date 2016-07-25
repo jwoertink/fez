@@ -18,18 +18,14 @@ module Fez
         Dir.mkdir_p(@directory)
       end
     end
-
-    # The filename will match what's in src/templates.
-    # Compile the ecr file, then write the new file in to the project folder
-    def add_project_file(filename : String)
-      ecr_file = File.join(__DIR__, "..", "templates", "#{filename}.ecr")
-      out_file = File.join(@directory, filename)
-      io = MemoryIO.new
-      # How do you do this?
-      # Error executing run: ecr/process "ecr_file" "io"
-      # Got: 
-      ECR.embed("ecr_file", io)
-      File.write(out_file, io.to_s)
+  
+    # Get all the project files to be added, and compile them from ECR templates
+    def add_project_files
+      {% for name, index in Fez::Template::FILES %}
+        File.write(File.join(@directory, "{{name.id}}"), String.build { |__str__|
+          ECR.embed("#{__DIR__}/../templates/{{name.id}}.ecr", "__str__")
+        })
+      {% end %}
     end
   end
 end
