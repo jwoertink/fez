@@ -20,4 +20,5 @@ puts "Building #{application_name}"
 
 new_app = Fez::Application.new(application_name)
 new_app.build_directory(application_directory)
+new_app.add_project_folders
 new_app.add_project_files

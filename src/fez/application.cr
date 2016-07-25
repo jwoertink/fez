@@ -21,11 +21,18 @@ module Fez
   
     # Get all the project files to be added, and compile them from ECR templates
     def add_project_files
-      {% for name, index in Fez::Template::FILES %}
-        File.write(File.join(@directory, "{{name.id}}"), String.build { |__str__|
+      {% for name, path in Fez::Template::FILES %}
+        path = "{{path.id}}" == "." ? File.join(@directory, "{{name.id}}") : File.join(@directory, "{{path.id}}", "{{name.id}}")
+        File.write(path, String.build { |__str__|
           ECR.embed("#{__DIR__}/../templates/{{name.id}}.ecr", "__str__")
         })
       {% end %}
+    end
+
+    def add_project_folders
+      Fez::Template::FOLDERS.each do |dir|
+        Dir.mkdir_p(File.join(@directory, dir))
+      end
     end
   end
 end
