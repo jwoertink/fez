@@ -4,6 +4,9 @@
 /.shards/
 /bin
 
+# So I can put some projects in here and ignore them
+/sandbox
+
 # Libraries don't need dependency lock
 # Dependencies will be locked in application that uses them
 /shard.lock
