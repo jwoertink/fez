@@ -39,7 +39,7 @@ module Fez
     # This generates a src/#{@name}.cr
     def add_initial_app_file
       script = File.read(File.join(__DIR__, "..", "templates", "main_script.cr"))
-      File.write(File.join(@directory, "#{@name}.cr"), script)
+      File.write(File.join(@directory, "src", "#{@name}.cr"), script)
     end
   end
 end

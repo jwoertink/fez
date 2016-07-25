@@ -1,5 +1,6 @@
 require "kemal"
 require "kilt/slang"
+require "./src/macros/*"
 require "./src/<%= name %>.cr"
 
 File.read_lines(".env").each do |line|
