@@ -7,4 +7,6 @@ File.read_lines('.env').each do |line|
   ENV[key] = value
 end
 
+Kemal.config.port = ENV["PORT"] || 3000
+
 Kemal.run
