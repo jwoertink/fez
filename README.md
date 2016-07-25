@@ -53,6 +53,10 @@ src/
   | views/
   | | layouts/
   | | | layout.slang
+  | | site/
+  | | | index.slang
+  | macros/
+  | | helper.cr
   | app_name.cr
 .env
 .gitignore

@@ -10,7 +10,8 @@ module Fez
       "robots.txt"  => "public",
       "favicon.ico" => "public",
       "layout.slang"=> "src/views/layouts",
-      "index.slang" => "src/views/site"
+      "index.slang" => "src/views/site",
+      "helper.cr"   => "src/macros"
     }
 
     FOLDERS = %w(
@@ -18,7 +19,8 @@ module Fez
       public/javascripts
       public/images
       src/views/layouts
-      srv/views/site
+      src/views/site
+      src/macros
     )
 
   end
