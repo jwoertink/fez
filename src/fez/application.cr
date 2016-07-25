@@ -29,10 +29,17 @@ module Fez
       {% end %}
     end
 
+    # Create all of the project folders
     def add_project_folders
       Fez::Template::FOLDERS.each do |dir|
         Dir.mkdir_p(File.join(@directory, dir))
       end
+    end
+  
+    # This generates a src/#{@name}.cr
+    def add_initial_app_file
+      script = File.read(File.join(__DIR__, "..", "templates", "main_script.cr"))
+      File.write(File.join(@directory, "#{@name}.cr"), script)
     end
   end
 end

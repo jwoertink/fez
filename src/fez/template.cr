@@ -9,7 +9,8 @@ module Fez
       "shard.yml"   => ".",
       "robots.txt"  => "public",
       "favicon.ico" => "public",
-      "layout.slang"=> "src/views/layouts"
+      "layout.slang"=> "src/views/layouts",
+      "index.slang" => "src/views/site"
     }
 
     FOLDERS = %w(
@@ -17,6 +18,7 @@ module Fez
       public/javascripts
       public/images
       src/views/layouts
+      srv/views/site
     )
 
   end
