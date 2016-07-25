@@ -1,0 +1,10 @@
+require "kemal"
+require "kilt/slang"
+require "./src/<%= name %>.cr"
+
+File.read_lines('.env').each do |line|
+  key, value = line.strip.split "="
+  ENV[key] = value
+end
+
+Kemal.run
