@@ -1,5 +1,6 @@
 require "./fez/*"
 require "option_parser"
+require "ecr/macros"
 
 application_name = "my_temp_app"
 application_directory = "temp"
@@ -17,3 +18,6 @@ puts "Building #{application_name}"
 new_app = Fez::Application.new(application_name)
 new_app.build_directory(application_directory)
 
+Fez::Template::FILES.each do |file|
+  new_app.add_project_file(file)
+end

@@ -16,5 +16,14 @@ module Fez
         Dir.mkdir_p(@directory)
       end
     end
+
+    def add_project_file(filename : String)
+      ecr_file = "#{__DIR__}/../templates/#{filename}.ecr"
+      puts "ECR: #{ecr_file}"
+      puts "OUT: #{File.join(@directory, filename)}"
+      #File.write(File.join(@directory, filename), String.build { |str|
+      #  ECR.embed("ecr_file", "str")
+      #})
+    end
   end
 end
