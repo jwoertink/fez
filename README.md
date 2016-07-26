@@ -38,7 +38,16 @@ $ fez -b super_cool_app -d ~/Sites/
 
 TODO: (in no particular order)
 
-1. all the things
+- [x] Generate basic project structure
+- [x] Get a sample app to boot
+- [x] Compile sass to css
+- [ ] Compile es6 to js
+- [ ] Generate sample spec for making a call to the home page
+- [ ] Configuration for using less over sass
+- [ ] Configuration for using coffeescript over es6
+- [ ] Configuration for defaulting back to ecr instead of slang
+- [ ] Use a crystal implementation for stylesheet compilation
+- [ ] Use a crystal implementation for javascript compilation
 
 ### Generated structure
 
@@ -50,13 +59,16 @@ public/
   | favicon.ico
   | robots.txt
 src/
+  | assets/
+  | | styles/
+  | | scripts/
+  | macros/
+  | | helper.cr
   | views/
   | | layouts/
   | | | layout.slang
   | | site/
   | | | index.slang
-  | macros/
-  | | helper.cr
   | app_name.cr
 .env
 .gitignore
@@ -66,6 +78,11 @@ README.md
 shard.yml
 ```
 
+## Philosophy
+
+I would like this to be an easy way to knock out a bunch of kemal apps without having to go through and setup the same things over and over.
+
+I don't want this to become a "framework" wrapper around kemal (even though my apps will most likely do that anyway). If you're looking for a full MVC framework, check out something like [Amethyst](https://github.com/Codcore/amethyst) or [Kemalyst](https://github.com/drujensen/kemalyst).
 
 ## Contributing
 
