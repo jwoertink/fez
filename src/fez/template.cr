@@ -5,6 +5,8 @@ module Fez
       ".gitignore"     => ".",
       ".travis.yml"    => ".",
       "app.cr"         => ".",
+      "Gemfile"        => ".",
+      "Rakefile"       => ".",
       "README.md"      => ".",
       "shard.yml"      => ".",
       "robots.txt"     => "public",
@@ -22,6 +24,8 @@ module Fez
       src/views/layouts
       src/views/site
       src/macros
+      src/assets/styles
+      src/assets/scripts
       spec
     )
 

@@ -1,0 +1,21 @@
+namespace :assets do                                                                         
+  desc "compile sass file to css"
+  task :compile do
+    system("sass --update src/assets/styles:public/stylesheets --style compressed")
+  end
+end
+
+namespace :app do
+  desc "Install gems and shards"
+  task :install do
+    system("shards install")
+    system("bundle install")
+  end
+
+  desc "Runs the app"
+  task :boot do
+    Rake::Task["assets:compile"].invoke
+    system("crystal app.cr")
+  end
+end
+
