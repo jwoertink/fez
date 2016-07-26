@@ -1,17 +1,18 @@
 module Fez
   class Template
     FILES = {
-      ".env"        => ".",
-      ".gitignore"  => ".",
-      ".travis.yml" => ".",
-      "app.cr"      => ".",
-      "README.md"   => ".",
-      "shard.yml"   => ".",
-      "robots.txt"  => "public",
-      "favicon.ico" => "public",
-      "layout.slang"=> "src/views/layouts",
-      "index.slang" => "src/views/site",
-      "helper.cr"   => "src/macros"
+      ".env"           => ".",
+      ".gitignore"     => ".",
+      ".travis.yml"    => ".",
+      "app.cr"         => ".",
+      "README.md"      => ".",
+      "shard.yml"      => ".",
+      "robots.txt"     => "public",
+      "favicon.ico"    => "public",
+      "layout.slang"   => "src/views/layouts",
+      "index.slang"    => "src/views/site",
+      "helper.cr"      => "src/macros",
+      "spec_helper.cr" => "spec"
     }
 
     FOLDERS = %w(
@@ -21,6 +22,7 @@ module Fez
       src/views/layouts
       src/views/site
       src/macros
+      spec
     )
 
   end
