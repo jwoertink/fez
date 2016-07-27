@@ -41,5 +41,11 @@ module Fez
       script = File.read(File.join(__DIR__, "..", "templates", "main_script.cr"))
       File.write(File.join(@directory, "src", "#{@name}.cr"), script)
     end
+  
+    # This generates a spec/#{@name}_spec.cr
+    def add_initial_spec_file
+      script = File.read(File.join(__DIR__, "..", "templates", "main_spec.cr"))
+      File.write(File.join(@directory, "src", "#{@name}_spec.cr"), script)
+    end
   end
 end

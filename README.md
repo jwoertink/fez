@@ -42,7 +42,7 @@ TODO: (in no particular order)
 - [x] Get a sample app to boot
 - [x] Compile sass to css
 - [ ] Compile es6 to js
-- [ ] Generate sample spec for making a call to the home page
+- [x] Generate sample spec for making a call to the home page
 - [ ] Configuration for using less over sass
 - [ ] Configuration for using coffeescript over es6
 - [ ] Configuration for defaulting back to ecr instead of slang
