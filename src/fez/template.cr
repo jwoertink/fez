@@ -6,6 +6,7 @@ module Fez
       ".travis.yml"    => ".",
       "app.cr"         => ".",
       "Gemfile"        => ".",
+      "Guardfile"      => ".",
       "Rakefile"       => ".",
       "README.md"      => ".",
       "shard.yml"      => ".",

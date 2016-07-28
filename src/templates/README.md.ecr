@@ -13,6 +13,12 @@ $ rake app:boot
 
 ## Development
 
+Using [Guard](https://github.com/guard/guard) for development auto-reload. Just running the `guard` command will watch your `src/<%= name %>.cr` file for changes. After you save your changes to this file, kemal will auto-reload for you.
+
+```text
+$ guard
+```
+
 ### Stylesheets
 
 Add your main stylesheet file in to `src/assets/styles`. This file should end in `.sass` or `.scss` like `src/assets/styles/application.scss`. 
