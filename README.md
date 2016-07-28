@@ -48,6 +48,7 @@ TODO: (in no particular order)
 - [ ] Configuration for defaulting back to ecr instead of slang
 - [ ] Use a crystal implementation for stylesheet compilation
 - [ ] Use a crystal implementation for javascript compilation
+- [x] Add in auto-reload for development
 
 ### Generated structure
 
