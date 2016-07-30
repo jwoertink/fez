@@ -2,6 +2,12 @@ namespace :assets do
   desc "compile sass file to css"
   task :compile do
     system("sass --update src/assets/styles:public/stylesheets --style compressed")
+    Dir.glob("src/assets/scripts/*.es6").each do |script_file|
+      script_file.match(/\/(\w+)\./)
+      filename = "public/javascripts/#{$1}.js"
+      babel = Babel::Transpiler.transform(File.read(script_file))
+      File.write(filename, babel["code"])
+    end
   end
 end
 
