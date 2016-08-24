@@ -21,6 +21,7 @@ $ git clone git@github.com:jwoertink/fez.git
 $ cd fez/
 $ make
 ```
+You should now have a `bin/fez` file to run.
 
 Optionally, you can use [homebrew](http://brew.sh) to install.
 
@@ -28,8 +29,6 @@ Optionally, you can use [homebrew](http://brew.sh) to install.
 brew tap jwoertink/fez
 brew install fez
 ```
-
-You should now have a `bin/fez` file to run.
 
 ## Usage
 You can use `fez -h` for help or `fez -v` to check the version you're running.
@@ -66,6 +65,9 @@ public/
   | images/
   | favicon.ico
   | robots.txt
+spec/
+  | spec_helper.cr
+  | app_name_spec.cr
 src/
   | assets/
   | | styles/
@@ -81,8 +83,12 @@ src/
 .env
 .gitignore
 .travis.yml
-app.cr
+Gemfile
+Guardfile
+Makefile
 README.md
+app.cr
+es2js.rb
 shard.yml
 ```
 
