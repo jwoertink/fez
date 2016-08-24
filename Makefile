@@ -4,7 +4,7 @@ all: build
 
 build:
 	mkdir -p $(OUT_DIR)
-	crystal compile --release -o $(OUT_DIR)/fez src/fez.cr
+	crystal build --release -o $(OUT_DIR)/fez src/fez.cr
 
 run:
 	$(OUT_DIR)/fez
