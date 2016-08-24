@@ -22,6 +22,13 @@ $ cd fez/
 $ make
 ```
 
+Optionally, you can use [homebrew](http://brew.sh) to install.
+
+```text
+brew tap jwoertink/fez
+brew install fez
+```
+
 You should now have a `bin/fez` file to run.
 
 ## Usage
