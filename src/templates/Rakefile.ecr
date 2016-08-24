@@ -1,12 +1,30 @@
+require "yaml"
+
 namespace :assets do                                                                         
   desc "compile sass file to css"
   task :compile do
-    system("sass --update src/assets/styles:public/stylesheets --style compressed")
-    Dir.glob("src/assets/scripts/*.es6").each do |script_file|
-      script_file.match(/\/(\w+)\./)
-      filename = "public/javascripts/#{$1}.js"
-      babel = Babel::Transpiler.transform(File.read(script_file))
-      File.write(filename, babel["code"])
+    Rake::Task["assets:compile:styles"].invoke
+    Rake::Task["assets:compile:scripts"].invoke
+  end
+
+  namespace :compile do
+    desc "Compile sass files to css"
+    task :styles do
+      system("sass --update src/assets/styles:public/stylesheets --style compressed")
+    end
+
+    desc "Compile es6 to js and minify into single file"
+    task :scripts do
+      manifest = YAML.load_file("src/assets/scripts/manifest.yml")
+      sources = []
+      manifest["files"].each do |filename|
+        source = File.read("src/assets/scripts/#{filename}")
+        if File.extname(filename) == ".es6"
+          source = Babel::Transpiler.transform(source, {'compact' => true, 'comments' => false})["code"]
+        end
+        sources << source
+      end
+      File.write("public/javascripts/application.js", sources.join("\n"))
     end
   end
 end

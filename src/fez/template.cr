@@ -15,7 +15,10 @@ module Fez
       "layout.slang"   => "src/views/layouts",
       "index.slang"    => "src/views/site",
       "helper.cr"      => "src/macros",
-      "spec_helper.cr" => "spec"
+      "spec_helper.cr" => "spec",
+      "site.scss"      => "src/assets/styles",
+      "site.es6"       => "src/assets/scripts",
+      "manifest.yml"   => "src/assets/scripts"
     }
 
     FOLDERS = %w(
