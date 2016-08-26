@@ -3,6 +3,7 @@ OUT_DIR=bin
 all: build
 
 build:
+	@echo $(shell pwd)
 	mkdir -p $(OUT_DIR)
 	crystal build --release -o $(OUT_DIR)/fez src/fez.cr
 
