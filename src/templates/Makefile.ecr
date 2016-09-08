@@ -1,4 +1,4 @@
-all: install                                                             
+all: install
 
 # install ruby and crystal dependencies
 install:
@@ -14,3 +14,6 @@ assets:
 run: assets
   crystal app.cr
 
+# Boot local console with app pre-loaded
+console:
+  @icr -r ./config
