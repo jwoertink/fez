@@ -5,6 +5,7 @@ module Fez
       ".gitignore"     => ".",
       ".travis.yml"    => ".",
       "app.cr"         => ".",
+      "config.cr"      => ".",
       "es2js.rb"       => ".",
       "Gemfile"        => ".",
       "Guardfile"      => ".",
