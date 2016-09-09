@@ -21,7 +21,7 @@ $ git clone git@github.com:jwoertink/fez.git
 $ cd fez/
 $ make
 ```
-You should now have a `bin/fez` file to run.
+You should now have a `bin/fez` file to run. You can symlink this to a more global location like `/usr/bin/local` to make it easier to use.
 
 Optionally, you can use [homebrew](http://brew.sh) to install.
 
@@ -31,13 +31,35 @@ brew install fez
 ```
 
 ## Usage
-You can use `fez -h` for help or `fez -v` to check the version you're running.
 
-Take your `bin/fez` file, and move that to a better location. Preferably somewhere globally accessible like `/usr/local/bin`? 
+Using fez is pretty easy. To see a help menu just run `fez -h`. You can see the version of fez you're running with `fez -v`
+
+TL;DR `fez -b my_app -d projects`
+
+### Specifying the directory
+
+To set the directory where your app will be created, you run fez with the `--directory` or `-d` flag, and pass the directory location/name.
 
 ```text
-$ fez -b your_app_name_goes_here
-$ fez -b super_cool_app -d ~/Sites/
+$ fez -d ~/Sites
+
+or
+
+$ fez --directory=~/Projects
+```
+
+If you don't specify a directory, fez will assume you want to use the `/tmp` directory.
+
+### Naming your app
+
+To set the name of your application, you run fez with the `--build` or `-b` flag. This example will generate a `/tmp/my_cool_app/` folder.
+
+```text
+$ fez -b my_cool_app
+
+or
+
+$ fez --build=my_cool_app
 ```
 
 ## Development
