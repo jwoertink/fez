@@ -34,7 +34,7 @@ brew install fez
 
 Using fez is pretty easy. To see a help menu just run `fez -h`. You can see the version of fez you're running with `fez -v`
 
-TL;DR `fez -b my_app -d projects`
+TL;DR `fez -b yourappname -d path/to/install`
 
 ### Specifying the directory
 
@@ -62,6 +62,41 @@ or
 $ fez --build=my_cool_app
 ```
 
+### Working with a fez generated app
+
+Now that you've generated your shiny new Kemal app, it's time to start doing development on it. The generated app will contain a `README.md` file that has all the instructions on how to start development.
+
+Your app will have 2 primary dependencies to run. 
+* [Ruby](https://www.ruby-lang.org/)
+* [Crystal](https://crystal-lang.org/)
+
+If you have those two installed, then your next step is to `cd` in to your new app's directory and run `make install`.
+
+```text
+$ fez -b supertrain -d ~/Projects
+$ cd ~/Projects/supertrain
+supertrain $ make install
+```
+
+Running this `make install` will just install the shard dependencies for your app (like Kemal, duh!), and then install the ruby gem dependencies. You may be asking yourself _why have ruby gem dependencies?_... Ruby has tools that work great like `guard` and `sass`. Plus, chances are, you came to Crystal from Ruby anyway, and if you're on a Mac, Ruby is installed by default.
+
+Ok, now that you're app dependencies are installed, you have 2 options to boot this baby. 
+
+1. `make run` - This compiles your assets in to their natural form, and then boots kemal.
+2. `guard` - This will boot your kemal and then watch for any changes to the files.
+
+Both of these options will boot a server on `localhost:3001`. The difference is that using guard allows you to do live-reloading.
+
+If you need to use a console (REPL) for development, you can use the `make console` command. You will have access to whatever has been required in your app's `config.cr`
+
+```text
+supertrain $ make console
+ => ok
+icr(0.19.1) > Kemal
+ => Kemal
+icr(0.19.1) >
+```
+
 ## Development
 
 TODO: (in no particular order)
@@ -78,41 +113,6 @@ TODO: (in no particular order)
 - [ ] Use a crystal implementation for javascript compilation
 - [x] Add in auto-reload for development
 
-### Generated structure
-
-```text
-public/
-  | stylesheets/
-  | javascripts/
-  | images/
-  | favicon.ico
-  | robots.txt
-spec/
-  | spec_helper.cr
-  | app_name_spec.cr
-src/
-  | assets/
-  | | styles/
-  | | scripts/
-  | macros/
-  | | helper.cr
-  | views/
-  | | layouts/
-  | | | layout.slang
-  | | site/
-  | | | index.slang
-  | app_name.cr
-.env
-.gitignore
-.travis.yml
-Gemfile
-Guardfile
-Makefile
-README.md
-app.cr
-es2js.rb
-shard.yml
-```
 
 ## Philosophy
 
