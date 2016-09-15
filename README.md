@@ -34,25 +34,25 @@ brew install fez
 
 Using fez is pretty easy. To see a help menu just run `fez -h`. You can see the version of fez you're running with `fez -v`
 
-TL;DR `fez -b yourappname -d path/to/install`
+TL;DR `fez -b yourappname`
 
 ### Specifying the directory
 
 To set the directory where your app will be created, you run fez with the `--directory` or `-d` flag, and pass the directory location/name.
 
 ```text
-$ fez -d ~/Sites
+$ fez -d ~/Sites/myapp.cr
 
 or
 
-$ fez --directory=~/Projects
+$ fez --directory=~/Projects/myapp.cr
 ```
 
-If you don't specify a directory, fez will assume you want to use the `/tmp` directory.
+If you don't specify a directory, fez will assume you want to use the current directory.
 
 ### Naming your app
 
-To set the name of your application, you run fez with the `--build` or `-b` flag. This example will generate a `/tmp/my_cool_app/` folder.
+To set the name of your application, you run fez with the `--build` or `-b` flag. This example will generate a `./my_cool_app/` folder.
 
 ```text
 $ fez -b my_cool_app
