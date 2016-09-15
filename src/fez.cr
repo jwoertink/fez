@@ -4,7 +4,7 @@ require "ecr/macros"
 
 # Default Values
 application_name = "my_temp_app"
-application_directory = "/tmp"
+application_directory = "."
 
 # Parse the CLI options
 OptionParser.parse! do |parser|

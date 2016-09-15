@@ -11,7 +11,12 @@ module Fez
     # The directory will be the location plus the app name.
     # If this folder exists, raise an error so we don't erase it
     def build_directory(directory_name : String)
-      @directory = File.join(directory_name, @name)
+      @directory = case directory_name
+      when "." then @name
+      else
+        File.join(directory_name)
+      end
+
       if Dir.exists?(@directory)
         raise "Directory #{@directory} already exists. Remove before continuing"
       else
