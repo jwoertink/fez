@@ -43,13 +43,28 @@ module Fez
   
     # This generates a src/#{@name}.cr
     def add_initial_app_file
-      script = File.read(File.join(__DIR__, "..", "templates", "main_script.cr"))
+      script = <<-CODE
+        get "/" do |env|
+          view("site/index")
+        end
+      CODE
       File.write(File.join(@directory, "src", "#{@name}.cr"), script)
     end
   
     # This generates a spec/#{@name}_spec.cr
     def add_initial_spec_file
-      script = File.read(File.join(__DIR__, "..", "templates", "main_spec.cr"))
+      script = <<-CODE
+        require "./spec_helper"
+
+        describe "root path" do
+          start
+
+          it "loads the home page" do
+            get "/"
+            response.body.should match(/Welcome/i)
+          end
+        end
+      CODE
       File.write(File.join(@directory, "src", "#{@name}_spec.cr"), script)
     end
   end
