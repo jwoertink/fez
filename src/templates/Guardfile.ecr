@@ -1,6 +1,7 @@
 # Watches your main kemal app
 guard "kemal", path: ".", file: "app.cr" do
   watch("src/<%= name %>.cr")
+  watch(%r{src/.*\.slang})
 end
 
 # Watches your sass files
