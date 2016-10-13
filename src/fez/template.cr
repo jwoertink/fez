@@ -24,6 +24,7 @@ module Fez
     }
 
     FOLDERS = %w(
+      bin
       public/stylesheets
       public/javascripts
       public/images
