@@ -1,5 +1,5 @@
 require "./spec_helper"
-require "../src/fez/application"
+spec_source "application"
 
 describe Fez::Application do
   describe ".build_directory" do

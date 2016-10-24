@@ -1,9 +1,11 @@
 require "spec"
 require "file_utils"
+require "ecr/macros"
 
 # Doing this because the main fez file works more like an executable.
 # Each spec should call it's own file individually.
-# TODO: this throws a weird error :/
-#macro spec_source(filename)
-#  require "./src/fez/#{ {{filename}} }"
-#end
+macro spec_source(*filenames)
+  {% for filename in filenames %}
+  require "../src/fez/#{ {{filename}} }"
+  {% end %}
+end

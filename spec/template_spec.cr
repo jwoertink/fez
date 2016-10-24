@@ -1,5 +1,5 @@
 require "./spec_helper"
-require "../src/fez/template"
+spec_source "template"
 
 describe Fez::Template do
   describe "FILES" do
