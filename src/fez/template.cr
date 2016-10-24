@@ -7,11 +7,14 @@ module Fez
       "app.cr"         => ".",
       "config.cr"      => ".",
       "es2js.rb"       => ".",
+      "Capfile"        => ".",
       "Gemfile"        => ".",
       "Guardfile"      => ".",
       "Makefile"       => ".",
       "README.md"      => ".",
       "shard.yml"      => ".",
+      "deploy.rb"      => "config",
+      "production.rb"  => "config/deploy",
       "robots.txt"     => "public",
       "favicon.ico"    => "public",
       "layout.slang"   => "src/views/layouts",
@@ -25,6 +28,7 @@ module Fez
 
     FOLDERS = %w(
       bin
+      config/deploy
       public/stylesheets
       public/javascripts
       public/images

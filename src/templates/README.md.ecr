@@ -38,3 +38,11 @@ Using `make run` will first compile your styles, and then generate your `public/
 Add your main javascript file in to `src/assets/scripts`. This file should end in `.es6` like `src/assets/scripts/application.es6`.
 You can write full ES6 compatible javascript in these, and they will be compiled to cross-browser compatible scripts using [Babel](https://babeljs.io/) when your app is booted, or the `make assets` task is ran. When they are compiled, the source is placed in `public/javascripts/application.js` or whatever you named the script dot js.
 
+## Deploying
+
+Now that you have a handle on developing your Kemal app, you will want to deploy it! There's a lot of different methods to deploying an app in to production, and fez takes the [Capistrano](http://capistranorb.com/) appraoch.
+
+1. Edit your `config/deploy.rb` file with the necessary changes.
+2. Edit your `config/deploy/production.rb` file with more necessary changes
+3. Run `cap production deploy`. 
+4. Pray it all works!

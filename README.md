@@ -102,6 +102,13 @@ icr(0.19.1) > Kemal
 icr(0.19.1) >
 ```
 
+Now that you have a handle on developing your Kemal app, you will want to deploy it! There's a lot of different methods to deploying an app in to production, and fez takes the [Capistrano](http://capistranorb.com/) appraoch.
+
+1. Edit your `config/deploy.rb` file with the necessary changes.
+2. Edit your `config/deploy/production.rb` file with more necessary changes
+3. Run `cap production deploy`. 
+4. Pray it all works!
+
 ## Development
 
 If you'd like to help contribute, check out the Projects tab, or issues.
