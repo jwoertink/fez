@@ -17,8 +17,6 @@ module Fez
       "production.rb"  => "config/deploy",
       "robots.txt"     => "public",
       "favicon.ico"    => "public",
-      "layout.slang"   => "src/views/layouts",
-      "index.slang"    => "src/views/site",
       "helper.cr"      => "src/macros",
       "spec_helper.cr" => "spec",
       "site.scss"      => "src/assets/styles",

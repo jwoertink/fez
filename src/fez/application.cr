@@ -40,6 +40,12 @@ module Fez
         Dir.mkdir_p(File.join(@directory, dir))
       end
     end
+    
+    # Create the views for an inital project
+    def add_view_files
+      view_loader = Fez::ViewLoader.new
+      view_loader.generate(@directory)
+    end
   
     # This generates a src/#{@name}.cr
     def add_initial_app_file
