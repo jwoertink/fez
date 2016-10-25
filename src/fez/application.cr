@@ -73,7 +73,7 @@ module Fez
         end
       end
       CODE
-      File.write(File.join(@directory, "src", "#{@name}_spec.cr"), script)
+      File.write(File.join(@directory, "spec", "#{@name}_spec.cr"), script)
     end
   end
 end
