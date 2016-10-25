@@ -4,8 +4,8 @@
 # This can be used in a view, or in a route block
 macro view(path)
   {% if path.split("/").last.starts_with?('_') %}
-    render "#{__DIR__}/views/#{{{path}}}.slang"
+    render "#{__DIR__}/views/#{{{path}}}.<%= engine %>"
   {% else %}
-    render "#{__DIR__}/views/#{{{path}}}.slang", "#{__DIR__}/views/layouts/layout.slang"
+    render "#{__DIR__}/views/#{{{path}}}.<%= engine %>", "#{__DIR__}/views/layouts/layout.<%= engine %>"
   {% end %}
 end

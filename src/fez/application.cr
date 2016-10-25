@@ -2,10 +2,12 @@ module Fez
   class Application
     getter name : String
     getter directory : String
+    getter engine : String
 
     def initialize(application_name : String)
       @name = application_name
       @directory = ""
+      @engine = Fez::DefaultOptions.template_engine.as(String)
     end
     
     # The directory will be the location plus the app name.
