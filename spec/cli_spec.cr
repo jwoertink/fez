@@ -1,5 +1,5 @@
 require "./spec_helper"
-spec_source "errors", "cli"
+spec_source "errors", "default_options", "cli"
 
 describe Fez::CLI do
   describe ".build_project" do

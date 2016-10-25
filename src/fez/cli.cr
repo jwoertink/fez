@@ -1,11 +1,9 @@
 module Fez
   struct CLI
-    DEFAULT_NAME = ""
-    DEFAULT_DIR = "."
     property application_name, application_directory
 
-    def self.run(opts : Hash(Symbol, String))
-      cli = self.new(opts.fetch(:app_name, DEFAULT_NAME), opts.fetch(:app_dir, DEFAULT_DIR))
+    def self.run
+      cli = self.new
       begin
         cli.build_project
       rescue ex : Fez::Errors::NameError
@@ -15,13 +13,13 @@ module Fez
       cli
     end
 
-    def initialize(app_name = DEFAULT_NAME, app_dir = DEFAULT_DIR)
-      @application_name = app_name
-      @application_directory = app_dir
+    def initialize
+      @application_name = Fez::DefaultOptions.application_name.as(String)
+      @application_directory = Fez::DefaultOptions.application_directory.as(String)
     end
 
     def build_project
-      raise Fez::Errors::NameError.new if @application_name == DEFAULT_NAME
+      raise Fez::Errors::NameError.new if @application_name == ""
       puts "Building #{@application_name}"
 
       new_app = Fez::Application.new(@application_name)
