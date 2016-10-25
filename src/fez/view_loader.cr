@@ -28,7 +28,7 @@ module Fez
           <link rel="stylesheet" type="text/css" href="/stylesheets/site.css"/>
         </head>
         <body>
-          == content
+          <%= content %>
           <script type="text/javascript" href="/javascripts/site.js"></script>
         </body>
       </html>
@@ -51,6 +51,7 @@ module Fez
       code = code.gsub(/(>|\/>)\w/, " #{$2}") # remove end of tags, and give some space
       code = code.gsub(/>|\/>/, "") # remove remaining end of tags
       code = code.gsub(/<!|</, "") # remove start of tags
+      code = code.gsub(/%=\scontent\s%/, "== content")
       code.chomp.strip
     end
   end
