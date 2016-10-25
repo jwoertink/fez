@@ -6,8 +6,7 @@ Setting up a Kemal app is super simple, but if the app you're building is a litt
 
 This initial version is going to make some heavy assumptions about the type of app you're building, and the organization of where things will go. Eventually it'll be nice to flesh that out, and make it configurable or something...
 
-* This app will have views
-* Views will use [Slang](https://github.com/jeromegn/slang)
+* This app will have views, and you can choose [ECR](https://crystal-lang.org/api/0.19.4/ECR.html) or [Slang](https://github.com/jeromegn/slang)
 * Stylesheets will be [Sass](http://sass-lang.com/)
 * Javascript will use ES6 compiled from [Babel](https://babeljs.io/)
 
@@ -65,6 +64,17 @@ $ fez --directory=~/Projects/myapp.cr -b my_cool_app
 
 If you don't specify a directory, fez will assume you want to use the current directory you're in.
 
+### Changing the view template engine
+
+By default, fez uses Slang as the default template engine. If you would like to switch back to using Crystal's built in ECR you will use the `--template` or `-t` flag. This flag is optional.
+
+```text
+$ fez -b my_cool_app -t ecr
+
+or
+
+$ fez -b my_cool_app --template=ecr
+```
 
 ### Working with a fez generated app
 
