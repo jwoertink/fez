@@ -1,5 +1,7 @@
 require "kemal"
+<% if engine == "slang" %>
 require "kilt/slang"
+<% end %>
 require "./src/macros/*"
 require "./src/<%= name %>.cr"
 

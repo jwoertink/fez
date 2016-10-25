@@ -1,4 +1,6 @@
 require "spec"
 require "spec-kemal"
+<% if engine == "slang" %>
 require "kilt/slang"
+<% end %>
 require "./src/<%= name %>"
