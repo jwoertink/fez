@@ -9,8 +9,8 @@ module Fez
     def generate(directory)
       path = File.join(directory, "src", "views")
             
-      File.write(File.join(path, "layouts/layout.#{@engine}"), layout)
-      File.write(File.join(path, "site/index.#{@engine}"), view)
+      File.write(File.join(path, "layouts", "layout.#{@engine}"), layout)
+      File.write(File.join(path, "site", "index.#{@engine}"), view)
     end
 
     def layout
