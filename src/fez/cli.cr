@@ -6,7 +6,7 @@ module Fez
       cli = self.new
       begin
         cli.build_project
-      rescue ex : Fez::Errors::NameError
+      rescue ex : Fez::Errors::NameError | Fez::Errors::DirectoryExistsError
         puts ex.message
         exit(1)
       end

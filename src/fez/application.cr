@@ -18,7 +18,7 @@ module Fez
       end
 
       if Dir.exists?(@directory)
-        raise "Directory #{@directory} already exists. Remove before continuing"
+        raise Fez::Errors::DirectoryExistsError.new(@directory) 
       else
         Dir.mkdir_p(@directory)
       end
