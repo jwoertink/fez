@@ -65,7 +65,6 @@ module Fez
       require "./spec_helper"
 
       describe "root path" do
-        start
 
         it "loads the home page" do
           get "/"
