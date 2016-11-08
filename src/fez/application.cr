@@ -4,6 +4,12 @@ module Fez
     getter directory : String
     getter engine : String
 
+    # A valid project name should start with a letter.
+    # This will also ensure later if we need to generate a class or module, we can
+    def self.valid_name?(project_name)
+      !!project_name.match(/\A[a-zA-Z]/)
+    end
+
     def initialize(application_name : String)
       @name = application_name
       @directory = ""

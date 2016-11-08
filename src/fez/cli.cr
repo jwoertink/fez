@@ -19,7 +19,7 @@ module Fez
     end
 
     def build_project
-      raise Fez::Errors::NameError.new if @application_name == ""
+      raise Fez::Errors::NameError.new unless Fez::Application.valid_name?(@application_name)
       puts "Building #{@application_name}"
 
       new_app = Fez::Application.new(@application_name)
