@@ -14,7 +14,7 @@ module Fez
       @name = application_name
       @directory = ""
       @engine = Fez::DefaultOptions.template_engine.as(String)
-      @api_only = Fez::DefaultOptions.api?
+      @api_only = Fez::DefaultOptions.api?.as(Bool)
     end
     
     # The directory will be the location plus the app name.
