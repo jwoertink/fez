@@ -1,3 +1,6 @@
+<% if api_only %>
+# use this file to create helpful macros
+<% else %>
 # view macro lets you specify the view to be displayed
 #   view("site/index") #=> renders src/views/site/index.<%= engine %> with the src/views/layouts/layout.<%= engine %>
 #   view("site/_form") => renders src/views/site/_form.<%= engine %> with no layout
@@ -9,3 +12,4 @@ macro view(path)
     render "#{__DIR__}/views/#{{{path}}}.<%= engine %>", "#{__DIR__}/views/layouts/layout.<%= engine %>"
   {% end %}
 end
+<% end %>

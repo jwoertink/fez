@@ -21,6 +21,8 @@ OptionParser.parse! do |parser|
     end
   end
 
+  parser.on("--api", "Build an API only application") { Fez::DefaultOptions.api = true }
+
   parser.on("-v", "--version", "Fez version") { puts "Fez v#{Fez::VERSION}"; exit }
   parser.on("-h", "--help", "Show this help") { puts parser; exit }
 end

@@ -1,9 +1,11 @@
 source "https://rubygems.org"
 
-gem "babel-transpiler"
 gem "capistrano"
 gem "capistrano-kemal"
 gem "guard"
 gem "guard-kemal"
+<% unless api_only %>
+gem "babel-transpiler"
 gem "guard-sass"
 gem "sass"
+<% end %>

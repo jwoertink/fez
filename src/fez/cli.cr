@@ -26,7 +26,7 @@ module Fez
       new_app.build_directory(@application_directory)
       new_app.add_project_folders
       new_app.add_project_files
-      new_app.add_view_files
+      new_app.add_view_files unless Fez::DefaultOptions.api?
       new_app.add_initial_app_file
       new_app.add_initial_spec_file
       new_app

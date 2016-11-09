@@ -1,11 +1,12 @@
 # Watches your main kemal app
 guard "kemal", path: ".", file: "app.cr" do
   watch("src/<%= name %>.cr")
-  watch(%r{src/.*\.<%= engine %>})
+  <% unless api_only %>watch(%r{src/.*\.<%= engine %>})<% end %>
 end
-
+<% unless api_only %>
 # Watches your sass files
 guard "sass", input: "src/assets/styles", output: "public/stylesheets", style: :compressed
 
 # Watches your es6 files
 watch(/src\/assets\/scripts\/\.es6$/) { `ruby es2js.rb` }
+<% end %>

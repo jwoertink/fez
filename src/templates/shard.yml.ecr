@@ -8,6 +8,11 @@ dependencies:
   kemal:
     github: sdogruyol/kemal
     branch: master
+  <% if api_only %>
+  kave:
+    github: jwoertink/kave
+    branch: master
+  <% end %>
   <% if engine == "slang" %>
   slang:
     github: jeromegn/slang

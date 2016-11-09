@@ -10,3 +10,8 @@ File.read_lines(".env").each do |line|
   ENV[key] = value
 end
 
+<% if api_only %>
+Kave.configure do |c|
+  # use default options
+end
+<% end %>
