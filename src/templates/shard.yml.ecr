@@ -13,7 +13,7 @@ dependencies:
     github: jwoertink/kave
     branch: master
   <% end %>
-  <% if engine == "slang" %>
+  <% if engine == "slang" && !api_only %>
   slang:
     github: jeromegn/slang
     branch: master

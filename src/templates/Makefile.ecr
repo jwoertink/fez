@@ -4,12 +4,12 @@ all: install
 install:
 	shards install
 	bundle install
-
+  
 # Compiles scripts and styles
-assets:
+assets:<% unless api_only %>
 	sass --update src/assets/styles:public/stylesheets --style compressed
 	ruby es2js.rb
-
+<% end %>
 # Compile assets then run app
 run: assets
 	crystal app.cr

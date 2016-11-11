@@ -2,7 +2,7 @@ ENV["KEMAL_ENV"] = "test"
 
 require "spec"
 require "spec-kemal"
-<% if engine == "slang" %>
+<% if engine == "slang" && !api_only %>
 require "kilt/slang"
 <% end %>
 require "./src/<%= name %>"

@@ -1,7 +1,6 @@
 require "kemal"
-<% if engine == "slang" %>
-require "kilt/slang"
-<% end %>
+<% if engine == "slang" && !api_only %>require "kilt/slang"<% end %>
+<% if api_only %>require "kave"<% end %>
 require "./src/macros/*"
 require "./src/<%= name %>.cr"
 
