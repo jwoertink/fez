@@ -1,5 +1,6 @@
 name: fez
-version: 0.7.0
+version: 0.8.0
+description: Fez is a Kemal application generator
 
 authors:
   - Jeremy Woertink <jeremywoertink@gmail.com>
