@@ -1,65 +1,42 @@
 module Fez
   class Template
-    DEFAULT_FILES = {
-      ".env"  => ".",
-      ".gitignore" => ".",
-      ".travis.yml" => ".",
-      "app.cr" => ".",
-      "config.cr" => ".",
-      "Capfile" => ".",
-      "Gemfile" => ".",
-      "Guardfile" => ".",
-      "Makefile" => ".",
-      "README.md" => ".",
-      "shard.yml" => ".",
-      "deploy.rb" => "config",
-      "production.rb" => "config/deploy",
-      "helper.cr" => "src/macros",
-      "spec_helper.cr" => "spec"
-    }
-
-    DEFAULT_FOLDERS = %w(
-      bin
-      config/deploy
-      src/macros
-      src/handlers
-      spec
-    )
-
-    def self.project_files
-      if Fez::DefaultOptions.api?
-        extra_files = {} of String => String
-      else
-        extra_files = {
-          "es2js.rb" => ".",
-          "robots.txt" => "public",
-          "favicon.ico" => "public",
-          "site.scss" => "src/assets/styles",
-          "site.es6" => "src/assets/scripts",
-          "manifest.yml" => "src/assets/scripts"
-        }
-      end
-
-      DEFAULT_FILES.merge(extra_files)
-    end
-
-    def self.project_folders
-      if Fez::DefaultOptions.api?
-        extra_folders = [] of String
-      else
-        extra_folders = %w(
-          public/stylesheets
-          public/javascripts
-          public/images
-          src/views/layouts
-          src/views/site
-          src/assets/styles
-          src/assets/scripts
-        )
-      end
-
-      DEFAULT_FOLDERS + extra_folders
-    end
+    FILES = [
+      {"name" => ".env",            "path" => ".",                  "web" => true, "api" => true},
+      {"name" => ".gitignore",      "path" => ".",                  "web" => true, "api" => true},
+      {"name" => ".travis.yml",     "path" => ".",                  "web" => true, "api" => true},
+      {"name" => "app.cr",          "path" => ".",                  "web" => true, "api" => true},
+      {"name" => "config.cr",       "path" => ".",                  "web" => true, "api" => true},
+      {"name" => "Capfile",         "path" => ".",                  "web" => true, "api" => true},
+      {"name" => "Gemfile",         "path" => ".",                  "web" => true, "api" => true},
+      {"name" => "Guardfile",       "path" => ".",                  "web" => true, "api" => true},
+      {"name" => "Makefile",        "path" => ".",                  "web" => true, "api" => true},
+      {"name" => "README.md",       "path" => ".",                  "web" => true, "api" => true},
+      {"name" => "shard.yml",       "path" => ".",                  "web" => true, "api" => true},
+      {"name" => "deploy.rb",       "path" => "config",             "web" => true, "api" => true},
+      {"name" => "production.rb",   "path" => "config/deploy",      "web" => true, "api" => true},
+      {"name" => "helper.cr",       "path" => "src/macros",         "web" => true, "api" => true},
+      {"name" => "spec_helper.cr",  "path" => "spec",               "web" => true, "api" => true},
+      {"name" => "es2js.rb",        "path" => ".",                  "web" => true, "api" => false},
+      {"name" => "robots.txt",      "path" => "public",             "web" => true, "api" => false},
+      {"name" => "favicon.ico",     "path" => "public",             "web" => true, "api" => false},
+      {"name" => "site.scss",       "path" => "src/assets/styles",  "web" => true, "api" => false},
+      {"name" => "site.es6",        "path" => "src/assets/scripts", "web" => true, "api" => false},
+      {"name" => "manifest.yml",    "path" => "src/assets/scripts", "web" => true, "api" => false}
+    ]
+    FOLDERS = [
+      {"path" => "bin",                 "web" => true, "api" => true},
+      {"path" => "config/deploy",       "web" => true, "api" => true},
+      {"path" => "src/macros",          "web" => true, "api" => true},
+      {"path" => "src/handlers",        "web" => true, "api" => true},
+      {"path" => "spec",                "web" => true, "api" => true},
+      {"path" => "public/stylesheets",  "web" => true, "api" => false},
+      {"path" => "public/javascripts",  "web" => true, "api" => false},
+      {"path" => "public/images",       "web" => true, "api" => false},
+      {"path" => "src/views/layouts",   "web" => true, "api" => false},
+      {"path" => "src/views/site",      "web" => true, "api" => false},
+      {"path" => "src/assets/styles",   "web" => true, "api" => false},
+      {"path" => "src/assets/scripts",  "web" => true, "api" => false}
+    ]
 
     def self.default_app_code
       if Fez::DefaultOptions.api?
