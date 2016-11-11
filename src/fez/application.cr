@@ -3,6 +3,7 @@ module Fez
     getter name : String
     getter directory : String
     getter engine : String
+    getter api_only : Bool
 
     # A valid project name should start with a letter.
     # This will also ensure later if we need to generate a class or module, we can
@@ -35,18 +36,19 @@ module Fez
   
     # Get all the project files to be added, and compile them from ECR templates
     def add_project_files
-      {% for name, path in Fez::Template.project_files %}
-        path = "{{path.id}}" == "." ? File.join(@directory, "{{name.id}}") : File.join(@directory, "{{path.id}}", "{{name.id}}")
+      {% for data in Fez::Template::FILES %}
+        path = "{{data["path"].id}}" == "." ? File.join(@directory, "{{data["name"].id}}") : File.join(@directory, "{{data["path"].id}}", "{{data["name"].id}}")
         File.write(path, String.build { |__str__|
-          ECR.embed("#{__DIR__}/../templates/{{name.id}}.ecr", "__str__")
-        })
+          ECR.embed("#{__DIR__}/../templates/{{data["name"].id}}.ecr", "__str__")
+        }) unless {{data["api"].id}} == false && @api_only
       {% end %}
     end
 
     # Create all of the project folders
     def add_project_folders
-      Fez::Template.project_folders.each do |dir|
-        Dir.mkdir_p(File.join(@directory, dir))
+      Fez::Template::FOLDERS.each do |dir|
+        #next if dir["api"] == false && @api_only
+        Dir.mkdir_p(File.join(@directory, dir["path"]))
       end
     end
     
