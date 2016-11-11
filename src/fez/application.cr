@@ -47,8 +47,8 @@ module Fez
     # Create all of the project folders
     def add_project_folders
       Fez::Template::FOLDERS.each do |dir|
-        #next if dir["api"] == false && @api_only
-        Dir.mkdir_p(File.join(@directory, dir["path"]))
+        next if dir["api"] == false && @api_only
+        Dir.mkdir_p(File.join(@directory, dir["path"].to_s))
       end
     end
     
