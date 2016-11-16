@@ -4,13 +4,6 @@ Fez is a [Kemal](http://kemalcr.com/) application generator.
 
 Setting up a Kemal app is super simple, but if the app you're building is a little more than "super simple", there's a bit of things you'll end up doing each time you start a project. Why not have a mini generator that will do it for you?
 
-This initial version is going to make some heavy assumptions about the type of app you're building, and the organization of where things will go. Eventually it'll be nice to flesh that out, and make it configurable or something...
-
-* This app will have views, and you can choose [ECR](https://crystal-lang.org/api/0.19.4/ECR.html) or [Slang](https://github.com/jeromegn/slang)
-* Stylesheets will be [Sass](http://sass-lang.com/)
-* Javascript will use ES6 compiled from [Babel](https://babeljs.io/)
-
-
 ## Installation
 
 Since this is an application generator, there's no need to include it as a dependency, or shard. Just install it locally, and build the executable.
@@ -75,6 +68,16 @@ or
 
 $ fez -b my_cool_app --template=ecr
 ```
+
+### Generating an API only application
+
+If you're building an API, and don't need HTML, CSS and JavaScript, you can use Fez to generate an API only app. Use the `--api` flag.
+
+```text
+$ fez -b my_api --api
+```
+
+By default a JSON API will be generated with route versioning. You can read up on [kave](https://github.com/jwoertink/kave) for more info about api customization.
 
 ### Working with a fez generated app
 

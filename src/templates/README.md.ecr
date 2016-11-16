@@ -25,7 +25,10 @@ $ guard
 ```
 
 You can also load a development console with your app pre-loaded by running `make console`.
-
+<% if api_only %>
+### API Customization
+This app uses [kave](https://github.com/jwoertink/kave) to handle doing API customization. Check out the README to learn more.
+<% else %>
 ### Stylesheets
 
 Add your main stylesheet file in to `src/assets/styles`. This file should end in `.sass` or `.scss` like `src/assets/styles/application.scss`. 
@@ -37,7 +40,7 @@ Using `make run` will first compile your styles, and then generate your `public/
 
 Add your main javascript file in to `src/assets/scripts`. This file should end in `.es6` like `src/assets/scripts/application.es6`.
 You can write full ES6 compatible javascript in these, and they will be compiled to cross-browser compatible scripts using [Babel](https://babeljs.io/) when your app is booted, or the `make assets` task is ran. When they are compiled, the source is placed in `public/javascripts/application.js` or whatever you named the script dot js.
-
+<% end %>
 ## Deploying
 
 Now that you have a handle on developing your Kemal app, you will want to deploy it! There's a lot of different methods to deploying an app in to production, and fez takes the [Capistrano](http://capistranorb.com/) appraoch.
