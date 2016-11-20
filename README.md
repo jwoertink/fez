@@ -48,28 +48,21 @@ $ fez my_cool_app -d ~/Projects/myapp.cr
 
 or
 
-$ fez  my_cool_app --directory=~/Projects/myapp.cr
+$ fez my_cool_app --directory=~/Projects/myapp.cr
 ```
 
 If you don't specify a directory, fez will assume you want to use the current directory you're in.
 
 ### Changing the view template
 
-By default, fez uses Kemal with Slang `kemal_slang` as the default template. If you would like to switch back to using Crystal's built in ECR you will use the `--template` or `-t` flag. This flag is optional.
+By default, fez uses Kemal with Slang `slang` as the default template. If you would like to switch back to using Crystal's built in ECR you will use the `--template` or `-t` flag. This flag is optional.
 
 ```text
-$ fez my_cool_app -t kemal_ecr
+$ fez my_cool_app -t ecr
 
 or
 
-$ fez -b my_cool_app --template=kemal_ecr
-```
-
-### Kemalyst ECR template
-
-dru.jensen has provided a template for [kemalyst](https://github.com/drujensen/kemalyst) if you prefer that framework:
-```text
-$ fez my_cool_app -t kemalyst_ecr
+$ fez my_cool_app --template=ecr
 ```
 
 ### Generating an API only application
@@ -77,10 +70,18 @@ $ fez my_cool_app -t kemalyst_ecr
 If you're building an API, and don't need HTML, CSS and JavaScript, you can use Fez to generate an API only app.
 
 ```text
-$ fez my_api -t kemal_api
+$ fez my_api -t api
 ```
 
 By default a JSON API will be generated with route versioning. You can read up on [kave](https://github.com/jwoertink/kave) for more info about api customization.
+
+### Other Frameworks
+
+The default framework for fez is [Kemal](http://kemalcr.com/).  Fez can support other frameworks using `--framework` or `-f` flag.  An ecr template for [kemalyst](https://github.com/drujensen/kemalyst) is provided.
+
+```text
+$ fez my_cool_app -f kemalyst -t ecr
+```
 
 ### Working with a fez generated app
 

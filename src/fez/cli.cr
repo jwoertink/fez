@@ -1,7 +1,7 @@
 module Fez
   struct CLI
     def self.run(options = ARGV)
-      cli = self.new(options.first? || "my_program")
+      cli = self.new(options.first? || "my_project")
       begin
         cli.build_project
       rescue ex : Fez::Errors::NameError | Fez::Errors::DirectoryExistsError
@@ -14,6 +14,7 @@ module Fez
     def initialize(@name : String)
       @directory = Fez::DefaultOptions.directory.as(String)
       @template = Fez::DefaultOptions.template.as(String)
+      @framework = Fez::DefaultOptions.framework.as(String)
     end
 
     def build_project
@@ -22,7 +23,7 @@ module Fez
 
       new_app = Fez::Application.new(@name)
       new_app.build_directory(@directory)
-      new_app.build_project(@template)
+      new_app.build_project(@framework, @template)
       new_app
     end
   end

@@ -5,17 +5,20 @@ require "ecr/macros"
 OptionParser.parse! do |parser|
   parser.banner = "Usage: fez [name] [--] [arguments]"
   
-  parser.on("-d DIR", "--directory=DIR", "Set the DIR where the app will be built") do |dir| 
+  parser.on("-d DIR", "--directory=DIR", "Set the directory where the app will be built") do |dir| 
     Fez::DefaultOptions.directory = dir
   end
   
-  parser.on("-t TEMPLATE", "--template=TEMPLATE", "Select a template. Options
-            are kemal_slang, kemal_ecr, kemal_api, kemalyst_ecr") do |template|
-    if template.match(/kemal_slang|kemal_ecr|kemal_api|kemalyst_ecr/)
+  parser.on("-t TEMPLATE", "--template=TEMPLATE", "Select a template. Options are slang, ecr, or api") do |template|
+    if template.match(/slang|ecr|api/)
       Fez::DefaultOptions.template = template
     else
       raise Fez::Errors::InvalidTemplateError.new(template)
     end
+  end
+
+  parser.on("-f FRAMEWORK", "--framework=FRAMEWORK", "Select the framework. Options are `kemal` or `kemalyst`.") do |framework| 
+    Fez::DefaultOptions.framework = framework
   end
 
   parser.on("-v", "--version", "Fez version") { puts "Fez v#{Fez::VERSION}"; exit }
