@@ -26,7 +26,7 @@ brew install fez
 
 Using fez is pretty easy. To see a help menu just run `fez -h`. You can see the version of fez you're running with `fez -v`
 
-TL;DR `fez -b yourappname`
+TL;DR `fez yourappname`
 
 ### Naming your app
 
