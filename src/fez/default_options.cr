@@ -1,40 +1,22 @@
 module Fez
   class DefaultOptions
-    @@application_name = ""
-    @@application_directory = "."
-    @@template_engine = "slang"
-    @@api = false
+    @@directory = "."
+    @@template = "kemal_slang"
 
-    def self.application_name
-      @@application_name
+    def self.directory
+      @@directory
     end
 
-    def self.application_name=(new_name)
-      @@application_name = new_name
+    def self.directory=(new_dir)
+      @@directory = new_dir
     end
 
-    def self.application_directory
-      @@application_directory
+    def self.template
+      @@template
     end
 
-    def self.application_directory=(new_dir)
-      @@application_directory = new_dir
-    end
-
-    def self.template_engine
-      @@template_engine
-    end
-
-    def self.template_engine=(new_engine)
-      @@template_engine = new_engine
-    end
-
-    def self.api?
-      @@api
-    end
-
-    def self.api=(enable_api)
-      @@api = enable_api
+    def self.template=(template)
+      @@template = template
     end
   end
 end

@@ -6,3 +6,11 @@ authors:
   - Jeremy Woertink <jeremywoertink@gmail.com>
 
 license: MIT
+
+dependencies:
+  crustache:
+    github: MakeNowJust/crustache
+
+development_dependencies:
+  icr:
+    github: greyblake/crystal-icr

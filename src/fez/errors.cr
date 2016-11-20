@@ -15,9 +15,9 @@ module Fez
       end
     end
 
-    class InvalidTemplateEngineError < Exception
-      def initialize(invalid_engine)
-        super("Engine #{invalid_engine} is not valid. Options are `slang` or `ecr`")
+    class InvalidTemplateError < Exception
+      def initialize(invalid_template)
+        super("Template #{invalid_template} is not valid. Options are: kemal_slang, kemal_ecr, kemal_api, kemalyst_ecr")
       end
     end
     

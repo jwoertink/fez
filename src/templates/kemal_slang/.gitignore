@@ -1,0 +1,18 @@
+# Common Dot files
+.DS_Store
+.env
+
+# Crystal stuff to ignore
+/doc
+/libs
+/.crystal
+/.shards
+/bin/app
+
+# Ruby stuff to ignore
+/.bundle
+
+# Web things
+/public/uploads/*
+/public/stylesheets/*
+.sass-cache
