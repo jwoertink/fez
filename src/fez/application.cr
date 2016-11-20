@@ -32,19 +32,21 @@ module Fez
       end
     end
 
-    def build_project(template : String)
-      # get all directories under template
-      Dir.glob("#{__DIR__}/../templates/#{template}/**/*/") do |dir|
+    def build_project(framework : String, template : String)
+      template_path = "#{__DIR__}/../templates/#{framework}/#{template}"
+      
+      # create all directories under template
+      Dir.glob("#{template_path}/**/*/") do |dir|
         puts dir
-        new_dir = dir.gsub("#{__DIR__}/../templates/#{template}/", "")
+        new_dir = dir.gsub("#{template_path}/", "")
         Dir.mkdir_p("#{@directory}/#{new_dir}")
       end
 
-      # get all files under template
-      Dir.glob("#{__DIR__}/../templates/#{template}/**/*") do |file|
+      # copy all files under template
+      Dir.glob("#{template_path}/**/*") do |file|
         if File.file? file
           puts file
-          new_file = file.gsub("#{__DIR__}/../templates/#{template}/", "")
+          new_file = file.gsub("#{template_path}/", "")
           File.write("#{@directory}/#{new_file}", File.read(file).to_s)
         end
       end
