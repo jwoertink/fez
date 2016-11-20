@@ -65,12 +65,19 @@ or
 $ fez -b my_cool_app --template=kemal_ecr
 ```
 
+### Kemalyst ECR template
+
+dru.jensen has provided a template for [kemalyst](https://github.com/drujensen/kemalyst) if you prefer that framework:
+```text
+$ fez my_cool_app -t kemalyst_ecr
+```
+
 ### Generating an API only application
 
 If you're building an API, and don't need HTML, CSS and JavaScript, you can use Fez to generate an API only app.
 
 ```text
-$ fez my_api -t {{name}}
+$ fez my_api -t kemal_api
 ```
 
 By default a JSON API will be generated with route versioning. You can read up on [kave](https://github.com/jwoertink/kave) for more info about api customization.
