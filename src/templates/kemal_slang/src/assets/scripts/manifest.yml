@@ -1,4 +1,0 @@
-# Add your scripts in the order they need to be included
-# They will be compiled in to a single application.js file
-files:
-  - site.es6

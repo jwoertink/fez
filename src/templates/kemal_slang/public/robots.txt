@@ -1,3 +1,0 @@
-# Allow or Disallow specific sections of your site from web spiders
-#
-User-agent: *
