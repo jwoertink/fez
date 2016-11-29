@@ -6,7 +6,7 @@ authors:
 
 dependencies:
   kemal:
-    github: sdogruyol/kemal
+    github: kemalcr/kemal
     branch: master
   
   

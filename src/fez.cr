@@ -3,7 +3,7 @@ require "option_parser"
 require "ecr/macros"
 
 OptionParser.parse! do |parser|
-  parser.banner = "Usage: fez [name] [--] [arguments]"
+  parser.banner = "Usage: fez NAME [--] [ARGS]"
   
   parser.on("-d DIR", "--directory=DIR", "Set the directory where the app will be built") do |dir| 
     Fez::DefaultOptions.directory = dir

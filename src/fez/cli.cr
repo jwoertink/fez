@@ -1,7 +1,8 @@
 module Fez
   struct CLI
     def self.run(options = ARGV)
-      cli = self.new(options.first? || "my_project")
+      raise Fez::Errors::NameError.new unless options.first?
+      cli = self.new(options.first)
       begin
         cli.build_project
       rescue ex : Fez::Errors::NameError | Fez::Errors::DirectoryExistsError

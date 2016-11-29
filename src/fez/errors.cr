@@ -4,7 +4,7 @@ module Fez
     # Thrown when the name of the project is invalid
     class NameError < Exception
       def initialize
-        super("You must specify an application name that begins with a letter using the -b flag. View the help menu for more info.")
+        super("You must specify an application name that begins with a letter. View the help menu for more info.")
       end
     end
 
@@ -17,7 +17,7 @@ module Fez
 
     class InvalidTemplateError < Exception
       def initialize(invalid_template)
-        super("Template #{invalid_template} is not valid. Options are: kemal_slang, kemal_ecr, kemal_api, kemalyst_ecr")
+        super("Template #{invalid_template} is not valid. Options are: slang, ecr, or api")
       end
     end
     
