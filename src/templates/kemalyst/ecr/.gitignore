@@ -3,5 +3,6 @@
 /lib/
 /.crystal/
 /.shards/
+.env
 
 
