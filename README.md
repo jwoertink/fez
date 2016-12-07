@@ -26,19 +26,15 @@ brew install fez
 
 Using fez is pretty easy. To see a help menu just run `fez -h`. You can see the version of fez you're running with `fez -v`
 
-TL;DR `fez -b yourappname`
+TL;DR `fez yourappname`
 
 ### Naming your app
 
-To set the name of your application, you run fez with the `--build` or `-b` flag. This flag is *required* in order to run. 
+To set the name of your application, you run fez with the name of the project. This is *required* in order to run. 
 
 This example will generate a `./my_cool_app/` folder.
 ```text
-$ fez -b my_cool_app
-
-or
-
-$ fez --build=my_cool_app
+$ fez my_cool_app
 ```
 
 ### Specifying the directory name
@@ -48,36 +44,44 @@ Fez gives you the option to create a different name for the directory your app i
 This example will generate an app called `my_cool_app` in a `myapp.cr` folder.
 
 ```text
-$ fez -d ~/Projects/myapp.cr -b my_cool_app
+$ fez my_cool_app -d ~/Projects/myapp.cr 
 
 or
 
-$ fez --directory=~/Projects/myapp.cr -b my_cool_app
+$ fez my_cool_app --directory=~/Projects/myapp.cr
 ```
 
 If you don't specify a directory, fez will assume you want to use the current directory you're in.
 
-### Changing the view template engine
+### Changing the view template
 
-By default, fez uses Slang as the default template engine. If you would like to switch back to using Crystal's built in ECR you will use the `--template` or `-t` flag. This flag is optional.
+By default, fez uses Kemal with Slang `slang` as the default template. If you would like to switch back to using Crystal's built in ECR you will use the `--template` or `-t` flag. This flag is optional.
 
 ```text
-$ fez -b my_cool_app -t ecr
+$ fez my_cool_app -t ecr
 
 or
 
-$ fez -b my_cool_app --template=ecr
+$ fez my_cool_app --template=ecr
 ```
 
 ### Generating an API only application
 
-If you're building an API, and don't need HTML, CSS and JavaScript, you can use Fez to generate an API only app. Use the `--api` flag.
+If you're building an API, and don't need HTML, CSS and JavaScript, you can use Fez to generate an API only app.
 
 ```text
-$ fez -b my_api --api
+$ fez my_api -t api
 ```
 
 By default a JSON API will be generated with route versioning. You can read up on [kave](https://github.com/jwoertink/kave) for more info about api customization.
+
+### Other Frameworks
+
+The default framework for fez is [Kemal](http://kemalcr.com/).  Fez can support other frameworks using `--framework` or `-f` flag.  An ecr template for [kemalyst](https://github.com/drujensen/kemalyst) is provided.
+
+```text
+$ fez my_cool_app -f kemalyst -t ecr
+```
 
 ### Working with a fez generated app
 
@@ -91,7 +95,7 @@ If you have those two installed, then your next step is to `cd` in to your new a
 
 ```text
 $ cd ~/Projects
-Projects $ fez -b supertrain
+Projects $ fez supertrain
 Projects $ cd supertrain
 Projects/supertrain $ make install
 ```

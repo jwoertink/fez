@@ -1,9 +1,9 @@
+require "crustache"
+
 module Fez
   class Application
     getter name : String
     getter directory : String
-    getter engine : String
-    getter api_only : Bool
 
     # A valid project name should start with a letter.
     # This will also ensure later if we need to generate a class or module, we can
@@ -14,8 +14,6 @@ module Fez
     def initialize(application_name : String)
       @name = application_name
       @directory = ""
-      @engine = Fez::DefaultOptions.template_engine.as(String)
-      @api_only = Fez::DefaultOptions.api?.as(Bool)
     end
     
     # The directory will be the location plus the app name.
@@ -33,41 +31,44 @@ module Fez
         Dir.mkdir_p(@directory)
       end
     end
-  
-    # Get all the project files to be added, and compile them from ECR templates
-    def add_project_files
-      {% for data in Fez::Template::FILES %}
-        path = "{{data["path"].id}}" == "." ? File.join(@directory, "{{data["name"].id}}") : File.join(@directory, "{{data["path"].id}}", "{{data["name"].id}}")
-        File.write(path, String.build { |__str__|
-          ECR.embed("#{__DIR__}/../templates/{{data["name"].id}}.ecr", "__str__")
-        }) unless {{data["api"].id}} == false && @api_only
-      {% end %}
-    end
 
-    # Create all of the project folders
-    def add_project_folders
-      Fez::Template::FOLDERS.each do |dir|
-        next if dir["api"] == false && @api_only
-        Dir.mkdir_p(File.join(@directory, dir["path"].to_s))
+    def build_project(framework : String, template : String)
+      template_path = "#{__DIR__}/../templates/#{framework}/#{template}"
+      
+      # create all directories under template
+      Dir.glob("#{template_path}/**/*/") do |dir|
+        new_dir = dir.gsub("#{template_path}/", "")
+        puts "Creating directory: #{new_dir}"
+        Dir.mkdir_p("#{@directory}/#{new_dir}")
       end
-    end
-    
-    # Create the views for an inital project
-    def add_view_files
-      view_loader = Fez::ViewLoader.new
-      view_loader.generate(@directory)
-    end
-  
-    # This generates a src/#{@name}.cr
-    def add_initial_app_file
-      script = Fez::Template.default_app_code
-      File.write(File.join(@directory, "src", "#{@name}.cr"), script)
-    end
-  
-    # This generates a spec/#{@name}_spec.cr
-    def add_initial_spec_file
-      script = Fez::Template.default_spec_code
-      File.write(File.join(@directory, "spec", "#{@name}_spec.cr"), script)
+
+      # copy all files under template
+      Dir.glob("#{template_path}/**/*") do |file|
+        if File.file? file
+          new_file = file.gsub("#{template_path}/", "")
+          puts "Copying template: #{new_file}"
+          File.write("#{@directory}/#{new_file}", File.read(file).to_s)
+        end
+      end
+
+      # rename {{name}} files
+      Dir.glob("#{@directory}/**/*{{name}}*") do |name_file|
+        rename_file = name_file.gsub("{{name}}", @name)
+        puts "Renaming template: #{rename_file}"
+        File.rename(name_file, rename_file)
+      end
+      
+      # process _tmpl files
+      Dir.glob("#{@directory}/**/*_tmpl") do |tmpl_file|
+        template = Crustache.parse File.read(tmpl_file)
+        model = {"name" => name}
+        new_file = tmpl_file.gsub("_tmpl", "")
+        puts "Processing template: #{new_file}"
+        File.write(new_file, String.build { |io|
+          io << Crustache.render template, model
+        })
+        File.delete tmpl_file
+      end
     end
   end
 end
