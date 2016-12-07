@@ -1,6 +1,7 @@
 .DS_Store
 /doc/
 /libs/
+/lib/
 /.crystal/
 /.shards/
 /bin

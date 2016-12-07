@@ -11,4 +11,4 @@ run:
 	$(OUT_DIR)/fez
 
 clean:
-	rm -rf  $(OUT_DIR) .crystal .shards libs
+	rm -rf  $(OUT_DIR) .crystal .shards libs lib

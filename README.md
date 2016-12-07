@@ -1,6 +1,6 @@
 # fez
 
-Fez is a [Kemal](http://kemalcr.com/) application generator.
+Fez is a web application generator that supports small projects with [Kemal](http://kemalcr.com/) or larger projects like [Kemalyst](https://github.com/drujensen/kemalyst)
 
 Setting up a Kemal app is super simple, but if the app you're building is a little more than "super simple", there's a bit of things you'll end up doing each time you start a project. Why not have a mini generator that will do it for you?
 
@@ -11,9 +11,10 @@ Since this is an application generator, there's no need to include it as a depen
 ```text
 $ git clone git@github.com:jwoertink/fez.git
 $ cd fez/
+$ shards install
 $ make
 ```
-You should now have a `bin/fez` file to run. You can symlink this to a more global location like `/usr/bin/local` to make it easier to use.
+You should now have a `bin/fez` file to run. You can symlink this to a more global location like `/usr/local/bin` to make it easier to use.
 
 Optionally, you can use [homebrew](http://brew.sh) to install.
 
@@ -53,9 +54,16 @@ $ fez my_cool_app --directory=~/Projects/myapp.cr
 
 If you don't specify a directory, fez will assume you want to use the current directory you're in.
 
-### Changing the view template
+### Templates
 
-By default, fez uses Kemal with Slang `slang` as the default template. If you would like to switch back to using Crystal's built in ECR you will use the `--template` or `-t` flag. This flag is optional.
+Fez comes out of the box with several different templates:
+* Kemal with slang
+* Kemal with ECR
+* Kemal as an API
+* Kemalyst with ECR
+* more coming later...
+
+By default, fez uses Kemal with [Slang](https://github.com/jeromegn/slang) as the default template. If you would like to switch back to using Crystal's built in ECR you will use the `--template` or `-t` flag. This flag is optional.
 
 ```text
 $ fez my_cool_app -t ecr
@@ -119,7 +127,7 @@ icr(0.19.1) > Kemal
 icr(0.19.1) >
 ```
 
-Now that you have a handle on developing your Kemal app, you will want to deploy it! There's a lot of different methods to deploying an app in to production, and fez takes the [Capistrano](http://capistranorb.com/) appraoch.
+Now that you have a handle on developing your app, you will want to deploy it! There's a lot of different methods to deploying an app in to production, and fez takes the [Capistrano](http://capistranorb.com/) appraoch.
 
 1. Edit your `config/deploy.rb` file with the necessary changes.
 2. Edit your `config/deploy/production.rb` file with more necessary changes
@@ -130,11 +138,6 @@ Now that you have a handle on developing your Kemal app, you will want to deploy
 
 If you'd like to help contribute, check out the Projects tab, or issues.
 
-## Philosophy
-
-I would like this to be an easy way to knock out a bunch of kemal apps without having to go through and setup the same things over and over.
-
-I don't want this to become a "framework" wrapper around kemal (even though my apps will most likely do that anyway). If you're looking for a full MVC framework, check out something like [Amethyst](https://github.com/Codcore/amethyst) or [Kemalyst](https://github.com/drujensen/kemalyst).
 
 ## Contributing
 
@@ -147,3 +150,5 @@ I don't want this to become a "framework" wrapper around kemal (even though my a
 ## Contributors
 
 - [[jwoertink](https://github.com/jwoertink)] Jeremy Woertink - creator, maintainer
+- [Other Brave Souls](https://github.com/jwoertink/fez/graphs/contributors)
+
