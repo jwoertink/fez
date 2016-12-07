@@ -20,6 +20,12 @@ module Fez
         super("Template #{invalid_template} is not valid. Options are: slang, ecr, or api")
       end
     end
+
+    class InvalidFrameworkError < Exception
+      def initialize(invalid_framework)
+        super("Framework #{invalid_framework} is not valid. Options are: kemal, kemalyst")
+      end
+    end
     
   end
 end
