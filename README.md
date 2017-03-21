@@ -11,17 +11,18 @@ Since this is an application generator, there's no need to include it as a depen
 ```text
 $ git clone git@github.com:jwoertink/fez.git
 $ cd fez/
-$ shards install
 $ make
 ```
 You should now have a `bin/fez` file to run. You can symlink this to a more global location like `/usr/local/bin` to make it easier to use.
 
-Optionally, you can use [homebrew](http://brew.sh) to install.
+Optionally, you can use [homebrew](http://brew.sh) to install. 
 
 ```text
 brew tap jwoertink/fez
 brew install fez
 ```
+
+**NOTE** If you have issues running from homebrew, install from github, and report the error to [homebrew-fez](https://github.com/jwoertink/homebrew-fez)
 
 ## Usage
 
