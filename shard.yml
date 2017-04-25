@@ -1,13 +1,14 @@
 name: fez
-version: 0.9.1
-description: Fez is a web application generator for Kemal and more
+version: 0.10.0
+description: Fez is a web application generator for Kemal
 
 authors:
   - Jeremy Woertink <jeremywoertink@gmail.com>
 
-license: MIT
+targets:
+  fez:
+    main: src/fez.cr
 
-dependencies:
-  crustache:
-    github: MakeNowJust/crustache
+crystal: 0.22.0
+license: MIT
 
