@@ -17,14 +17,6 @@ OptionParser.parse! do |parser|
     end
   end
 
-  parser.on("-f FRAMEWORK", "--framework=FRAMEWORK", "Select the framework. Options are `kemal` or `kemalyst`.") do |framework|
-    if framework.match(/kemal(yst)?$/)
-      Fez::DefaultOptions.framework = framework
-    else
-      raise Fez::Errors::InvalidFrameworkError.new(framework)
-    end
-  end
-
   parser.on("-v", "--version", "Fez version") { puts "Fez v#{Fez::VERSION}"; exit }
   parser.on("-h", "--help", "Show this help") { puts parser; exit }
 end
