@@ -1,8 +1,14 @@
 # fez
 
-Fez is a web application generator that supports small projects with [Kemal](http://kemalcr.com/) or larger projects like [Kemalyst](https://github.com/drujensen/kemalyst)
+Fez is an application generator for projects with [Kemal](http://kemalcr.com/). If you're looking for larger projects, check out [KGen](https://github.com/TechMagister/kemalyst-generator).
 
 Setting up a Kemal app is super simple, but if the app you're building is a little more than "super simple", there's a bit of things you'll end up doing each time you start a project. Why not have a mini generator that will do it for you?
+
+This generator will generate a somewhat opinionated version of:
+
+* Simple app with assets and views (customizable between ECR and Slang) setup
+* Simple API with api versioning
+* Simple app backed by a database (coming soon)
 
 ## Installation
 
@@ -61,10 +67,9 @@ Fez comes out of the box with several different templates:
 * Kemal with slang
 * Kemal with ECR
 * Kemal as an API
-* Kemalyst with ECR
 * more coming later...
 
-By default, fez uses Kemal with [Slang](https://github.com/jeromegn/slang) as the default template. If you would like to switch back to using Crystal's built in ECR you will use the `--template` or `-t` flag. This flag is optional.
+By default, fez uses Kemal with [Slang](https://github.com/jeromegn/slang) as the default template. If you would like to switch back to using Crystal's built in ECR, or build an api, you will use the `--template` or `-t` flag. This flag is optional.
 
 ```text
 $ fez my_cool_app -t ecr
@@ -86,17 +91,14 @@ By default a JSON API will be generated with route versioning. You can read up o
 
 ### Other Frameworks
 
-The default framework for fez is [Kemal](http://kemalcr.com/).  Fez can support other frameworks using `--framework` or `-f` flag.  An ecr template for [kemalyst](https://github.com/drujensen/kemalyst) is provided.
+Previously fez supported generating [kemalyst](https://github.com/drujensen/kemalyst) apps. Now that the framework is gaining more traction, they have started a new generator called [KGen](https://github.com/TechMagister/kemalyst-generator) which you can use for those projects.
 
-```text
-$ fez my_cool_app -f kemalyst -t ecr
-```
 
 ### Working with a fez generated app
 
 Now that you've generated your shiny new Kemal app, it's time to start doing development on it. The generated app will contain a `README.md` file that has all the instructions on how to start development.
 
-Your app will have 2 primary dependencies to run. 
+Your app will have 2 primary dependencies to run.
 * [Ruby](https://www.ruby-lang.org/)
 * [Crystal](https://crystal-lang.org/)
 
@@ -135,6 +137,8 @@ Now that you have a handle on developing your app, you will want to deploy it! T
 3. Run `cap production deploy`. 
 4. Pray it all works!
 
+Alternitively, if you're looking to deploy to [Heroku](https://www.heroku.com/), you can use [Crystal Heroku Build Pack](https://github.com/crystal-lang/heroku-buildpack-crystal/) to deploy.
+
 ## Development
 
 If you'd like to help contribute, check out the Projects tab, or issues.
@@ -150,6 +154,6 @@ If you'd like to help contribute, check out the Projects tab, or issues.
 
 ## Contributors
 
-- [[jwoertink](https://github.com/jwoertink)] Jeremy Woertink - creator, maintainer
+- [jwoertink](https://github.com/jwoertink) Jeremy Woertink - creator, maintainer
 - [Other Brave Souls](https://github.com/jwoertink/fez/graphs/contributors)
 
