@@ -1,5 +1,3 @@
-require "crustache"
-
 module Fez
   class Application
     getter name : String
@@ -32,8 +30,8 @@ module Fez
       end
     end
 
-    def build_project(framework : String, template : String)
-      template_path = "#{__DIR__}/../templates/#{framework}/#{template}"
+    def build_project(template : String)
+      template_path = "#{__DIR__}/../templates/#{template}"
       
       # create all directories under template
       Dir.glob("#{template_path}/**/*/") do |dir|
