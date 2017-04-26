@@ -1,6 +1,5 @@
 require "./fez/*"
 require "option_parser"
-require "ecr/macros"
 
 OptionParser.parse! do |parser|
   parser.banner = "Usage: fez NAME [--] [ARGS]"

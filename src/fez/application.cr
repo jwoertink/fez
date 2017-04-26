@@ -58,12 +58,12 @@ module Fez
       
       # process _tmpl files
       Dir.glob("#{@directory}/**/*_tmpl") do |tmpl_file|
-        template = Crustache.parse File.read(tmpl_file)
-        model = {"name" => name}
+        template = File.read(tmpl_file)
+        template = template.gsub(/{{name}}/, name)
         new_file = tmpl_file.gsub("_tmpl", "")
         puts "Processing template: #{new_file}"
         File.write(new_file, String.build { |io|
-          io << Crustache.render template, model
+          io << template
         })
         File.delete tmpl_file
       end
