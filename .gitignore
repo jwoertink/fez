@@ -4,6 +4,7 @@
 /lib/
 /.crystal/
 /.shards/
+/.vscode/*
 /bin
 
 # So I can put some projects in here and ignore them
