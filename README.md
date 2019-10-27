@@ -1,4 +1,4 @@
-# fez
+# fez [![Build Status](https://travis-ci.com/jwoertink/fez.svg?branch=master)](https://travis-ci.com/jwoertink/fez)
 
 Fez is an application generator for projects with [Kemal](http://kemalcr.com/). If you're looking for larger projects, check out [KGen](https://github.com/TechMagister/kemalyst-generator).
 
