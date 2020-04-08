@@ -1,5 +1,5 @@
 name: fez
-version: 0.10.0
+version: 0.10.1
 description: Fez is a web application generator for Kemal
 
 authors:
@@ -11,4 +11,3 @@ targets:
 
 crystal: 0.22.0
 license: MIT
-
