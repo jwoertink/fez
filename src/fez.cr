@@ -1,13 +1,13 @@
 require "./fez/*"
 require "option_parser"
 
-OptionParser.parse! do |parser|
+OptionParser.parse do |parser|
   parser.banner = "Usage: fez NAME [--] [ARGS]"
-  
-  parser.on("-d DIR", "--directory=DIR", "Set the directory where the app will be built") do |dir| 
+
+  parser.on("-d DIR", "--directory=DIR", "Set the directory where the app will be built") do |dir|
     Fez::DefaultOptions.directory = dir
   end
-  
+
   parser.on("-t TEMPLATE", "--template=TEMPLATE", "Select a template. Options are slang, ecr, or api") do |template|
     if template.match(/slang|ecr|api/)
       Fez::DefaultOptions.template = template
