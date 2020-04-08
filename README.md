@@ -1,6 +1,6 @@
 # fez [![Build Status](https://travis-ci.com/jwoertink/fez.svg?branch=master)](https://travis-ci.com/jwoertink/fez)
 
-Fez is an application generator for projects with [Kemal](http://kemalcr.com/). If you're looking for larger projects, check out [KGen](https://github.com/TechMagister/kemalyst-generator).
+Fez is an application generator for projects with [Kemal](http://kemalcr.com/).
 
 Setting up a Kemal app is super simple, but if the app you're building is a little more than "super simple", there's a bit of things you'll end up doing each time you start a project. Why not have a mini generator that will do it for you?
 
@@ -88,10 +88,6 @@ $ fez my_api -t api
 ```
 
 By default a JSON API will be generated with route versioning. You can read up on [kave](https://github.com/jwoertink/kave) for more info about api customization.
-
-### Other Frameworks
-
-Previously fez supported generating [kemalyst](https://github.com/drujensen/kemalyst) apps. Now that the framework is gaining more traction, they have started a new generator called [KGen](https://github.com/TechMagister/kemalyst-generator) which you can use for those projects.
 
 
 ### Working with a fez generated app
