@@ -9,5 +9,5 @@ targets:
   fez:
     main: src/fez.cr
 
-crystal: 0.22.0
+crystal: 0.34.0
 license: MIT
