@@ -1,4 +1,3 @@
-
 # view macro lets you specify the view to be displayed
 #   view("site/index") #=> renders src/views/site/index.slang with the src/views/layouts/layout.slang
 #   view("site/_form") => renders src/views/site/_form.slang with no layout
@@ -10,4 +9,3 @@ macro view(path)
     render "#{__DIR__}/views/#{{{path}}}.slang", "#{__DIR__}/views/layouts/layout.slang"
   {% end %}
 end
-

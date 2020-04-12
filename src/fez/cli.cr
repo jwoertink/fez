@@ -1,14 +1,9 @@
 module Fez
   struct CLI
     def self.run(options = ARGV)
-      begin
-        raise Fez::Errors::NameError.new unless options.first?
-        cli = self.new(options.first)
-        cli.build_project
-      rescue ex : Fez::Errors::NameError | Fez::Errors::DirectoryExistsError
-        puts ex.message
-        exit(1)
-      end
+      raise Fez::Errors::NameError.new unless options.first?
+      cli = self.new(options.first)
+      cli.build_project
       cli
     end
 
@@ -18,13 +13,8 @@ module Fez
     end
 
     def build_project
-      begin
-        unless Fez::Application.valid_name?(@name)
-          raise Fez::Errors::NameError.new
-        end
-      rescue ex
-        puts ex.message
-        exit(1)
+      unless Fez::Application.valid_name?(@name)
+        raise Fez::Errors::NameError.new
       end
       puts "Building #{@name}"
 

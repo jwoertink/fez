@@ -1,6 +1,7 @@
 require "spec"
 require "file_utils"
 require "ecr/macros"
+require "../src/fez/*"
 
 # Doing this because the main fez file works more like an executable.
 # Each spec should call it's own file individually.
