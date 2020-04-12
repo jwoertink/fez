@@ -13,18 +13,18 @@ module Fez
       @name = application_name
       @directory = ""
     end
-    
+
     # The directory will be the location plus the app name.
     # If this folder exists, raise an error so we don't erase it
     def build_directory(directory_name : String)
       @directory = case directory_name
-      when "." then @name
-      else
-        File.join(directory_name)
-      end
+                   when "." then @name
+                   else
+                     File.join(directory_name)
+                   end
 
       if Dir.exists?(@directory)
-        raise Fez::Errors::DirectoryExistsError.new(@directory) 
+        raise Fez::Errors::DirectoryExistsError.new(@directory)
       else
         Dir.mkdir_p(@directory)
       end
@@ -32,7 +32,7 @@ module Fez
 
     def build_project(template : String)
       template_path = "#{__DIR__}/../templates/#{template}"
-      
+
       # create all directories under template
       Dir.glob("#{template_path}/**/*/") do |dir|
         new_dir = dir.gsub("#{template_path}/", "")
@@ -55,7 +55,7 @@ module Fez
         puts "Renaming template: #{rename_file}"
         File.rename(name_file, rename_file)
       end
-      
+
       # process _tmpl files
       Dir.glob("#{@directory}/**/*_tmpl") do |tmpl_file|
         template = File.read(tmpl_file)

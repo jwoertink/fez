@@ -1,6 +1,5 @@
 module Fez
   module Errors
-
     # Thrown when the name of the project is invalid
     class NameError < Exception
       def initialize
@@ -20,6 +19,5 @@ module Fez
         super("Template #{invalid_template} is not valid. Options are: slang, ecr, or api")
       end
     end
-
   end
 end
