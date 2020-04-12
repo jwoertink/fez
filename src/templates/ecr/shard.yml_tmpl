@@ -16,5 +16,5 @@ development_dependencies:
     github: sdogruyol/spec-kemal
     branch: master
   icr:
-    github: greyblake/crystal-icr
+    github: crystal-community/icr
     branch: master
