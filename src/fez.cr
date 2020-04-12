@@ -9,10 +9,15 @@ OptionParser.parse do |parser|
   end
 
   parser.on("-t TEMPLATE", "--template=TEMPLATE", "Select a template. Options are slang, ecr, or api") do |template|
-    if template.match(/slang|ecr|api/)
-      Fez::DefaultOptions.template = template
-    else
-      raise Fez::Errors::InvalidTemplateError.new(template)
+    begin
+      if template.match(/^slang$|^ecr$|^api$/)
+        Fez::DefaultOptions.template = template
+      else
+        raise Fez::Errors::InvalidTemplateError.new(template)
+      end
+    rescue ex
+      puts ex.message
+      exit(1)
     end
   end
 
