@@ -1,5 +1,7 @@
 module Fez
   class Application
+    ENV = ".env"
+
     getter name : String
     getter directory : String
 
@@ -67,6 +69,13 @@ module Fez
         })
         File.delete tmpl_file
       end
+
+      create_empty_env
+    end
+
+    def create_empty_env
+      env = File.join(@directory, ENV)
+      File.new(env, "w") unless File.exists?(env)
     end
   end
 end
