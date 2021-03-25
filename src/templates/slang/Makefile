@@ -4,7 +4,7 @@ all: install
 install:
 	shards install
 	bundle install
-  
+
 # Compiles scripts and styles
 assets:
 	sass --update src/assets/styles:public/stylesheets --style compressed

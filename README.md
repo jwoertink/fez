@@ -21,7 +21,7 @@ $ make
 ```
 You should now have a `bin/fez` file to run. You can symlink this to a more global location like `/usr/local/bin` to make it easier to use.
 
-Optionally, you can use [homebrew](http://brew.sh) to install. 
+Optionally, you can use [homebrew](http://brew.sh) to install.
 
 ```text
 brew tap jwoertink/fez
@@ -38,7 +38,7 @@ TL;DR `fez yourappname`
 
 ### Naming your app
 
-To set the name of your application, you run fez with the name of the project. This is *required* in order to run. 
+To set the name of your application, you run fez with the name of the project. This is *required* in order to run.
 
 This example will generate a `./my_cool_app/` folder.
 ```text
@@ -52,7 +52,7 @@ Fez gives you the option to create a different name for the directory your app i
 This example will generate an app called `my_cool_app` in a `myapp.cr` folder.
 
 ```text
-$ fez my_cool_app -d ~/Projects/myapp.cr 
+$ fez my_cool_app -d ~/Projects/myapp.cr
 
 or
 
@@ -130,7 +130,7 @@ Now that you have a handle on developing your app, you will want to deploy it! T
 
 1. Edit your `config/deploy.rb` file with the necessary changes.
 2. Edit your `config/deploy/production.rb` file with more necessary changes
-3. Run `cap production deploy`. 
+3. Run `cap production deploy`.
 4. Pray it all works!
 
 Alternitively, if you're looking to deploy to [Heroku](https://www.heroku.com/), you can use [Crystal Heroku Build Pack](https://github.com/crystal-lang/heroku-buildpack-crystal/) to deploy.
@@ -152,4 +152,3 @@ If you'd like to help contribute, check out the Projects tab, or issues.
 
 - [jwoertink](https://github.com/jwoertink) Jeremy Woertink - creator, maintainer
 - [Other Brave Souls](https://github.com/jwoertink/fez/graphs/contributors)
-

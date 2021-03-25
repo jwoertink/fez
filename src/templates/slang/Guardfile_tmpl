@@ -9,4 +9,3 @@ guard "sass", input: "src/assets/styles", output: "public/stylesheets", style: :
 
 # Watches your es6 files
 watch(/src\/assets\/scripts\/\.es6$/) { `ruby es2js.rb` }
-
