@@ -1,4 +1,4 @@
-require "yaml"                                                                                     
+require "yaml"
 require "babel-transpiler"
 
 manifest = YAML.load_file("src/assets/scripts/manifest.yml")
@@ -11,4 +11,3 @@ manifest["files"].each do |filename|
   sources << source
 end
 File.write("public/javascripts/application.js", sources.join("\n"))
-

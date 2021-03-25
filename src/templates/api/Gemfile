@@ -4,4 +4,3 @@ gem "capistrano"
 gem "capistrano-kemal"
 gem "guard"
 gem "guard-kemal"
-

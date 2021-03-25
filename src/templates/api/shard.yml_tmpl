@@ -8,16 +8,13 @@ dependencies:
   kemal:
     github: kemalcr/kemal
     branch: master
-  
   kave:
     github: jwoertink/kave
     branch: master
-  
-  
 
 development_dependencies:
   spec-kemal:
-    github: sdogruyol/spec-kemal
+    github: kemalcr/spec-kemal
     branch: master
   icr:
     github: crystal-community/icr

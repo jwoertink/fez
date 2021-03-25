@@ -44,5 +44,5 @@ Now that you have a handle on developing your Kemal app, you will want to deploy
 
 1. Edit your `config/deploy.rb` file with the necessary changes.
 2. Edit your `config/deploy/production.rb` file with more necessary changes
-3. Run `cap production deploy`. 
+3. Run `cap production deploy`.
 4. Pray it all works!
