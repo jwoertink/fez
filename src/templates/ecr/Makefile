@@ -8,6 +8,8 @@ install:
 # Compiles scripts and styles
 assets:
 	sass --update src/assets/styles:public/stylesheets --style compressed
+	mkdir -p public/javascripts
+	touch public/javascripts/application.js
 	ruby es2js.rb
 
 # Compile assets then run app
