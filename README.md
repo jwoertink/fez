@@ -8,7 +8,7 @@ This generator will generate a somewhat opinionated version of:
 
 * Simple app with assets and views (customizable between ECR and Slang) setup
 * Simple API with api versioning
-* Simple app backed by a database (coming soon)
+* Simple app backed by a database (not implemented)
 
 ## Installation
 
