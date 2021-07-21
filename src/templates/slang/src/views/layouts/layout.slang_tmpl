@@ -12,4 +12,4 @@ html
 
   body
     == content
-    script type="text/javascript" href="/javascripts/site.js"
+    script type="text/javascript" src="/javascripts/application.js"
