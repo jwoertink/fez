@@ -1,3 +1,3 @@
 module Fez
-  VERSION = "0.11.0"
+  VERSION = {{ `shards version "#{__DIR__}"`.chomp.stringify }}
 end
