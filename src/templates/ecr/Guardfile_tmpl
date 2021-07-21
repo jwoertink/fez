@@ -8,4 +8,4 @@ end
 guard "sass", input: "src/assets/styles", output: "public/stylesheets", style: :compressed
 
 # Watches your es6 files
-watch(/src\/assets\/scripts\/\.es6$/) { `ruby es2js.rb` }
+watch(/src\/assets\/scripts\/.*\.es6$/) { `ruby es2js.rb` }
