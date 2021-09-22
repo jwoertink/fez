@@ -4,11 +4,12 @@ require "kave"
 require "./src/macros/*"
 require "./src/{{name}}.cr"
 
-File.read_lines(".env").each do |line|
-  key, value = line.strip.split "="
-  ENV[key] = value
+if File.exists?(".env")
+  File.read_lines(".env").each do |line|
+    key, value = line.strip.split "="
+    ENV[key] = value
+  end
 end
-
 
 Kave.configure do |c|
   # use default options
